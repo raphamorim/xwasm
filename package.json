@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "workspaces": [
+    "use-wasm",
+    "babel-wasm"
+  ],
+  "author": "Raphael Amorim",
+  "license": "MIT",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sh ./build.sh",
+    "install-emcc": "sh ./install_emcc.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
