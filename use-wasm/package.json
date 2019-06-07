@@ -1,0 +1,9 @@
+{
+  "name": "use-wasm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "useWasm.js",
+  "keywords": [],
+  "author": "Raphael Amorim",
+  "license": "MIT"
+}
