@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 node ./index.js install
 
