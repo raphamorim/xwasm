@@ -13,7 +13,7 @@ if (argv.length < 2) {
 const command = argv[2];
 switch (command) {
   case 'install':
-    require('./install')();
+    require('./install')(process.cwd());
     break;
 
   case 'version':
