@@ -3,7 +3,8 @@
   "workspaces": [
     "use-wasm",
     "docs",
-    "babel-wasm"
+    "babel-wasm",
+    "emscripten"
   ],
   "author": "Raphael Amorim",
   "license": "MIT",
@@ -12,10 +13,11 @@
     "run-docs": "cd docs && yarn start",
     "build": "sh ./build.sh",
     "install-emcc": "sh ./scripts/install_emcc.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'done'"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "lerna": "^3.10.8",
     "babel-loader": "^8.0.5",
     "@babel/preset-env": "^7.1.3",
     "@babel/preset-react": "^7.0.0",
