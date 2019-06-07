@@ -44,7 +44,7 @@ const filesToProcess = [
 module.exports = filesToProcess;
 ```
 
-2. Now if you run `emscripten build`, it's going to load the configuration above. You can add it for example (if you want to) before any build task.
+2. Now if you run `emscripten build`, it's going to load the configuration above. If you want to, you can add it before any build task. For example:
 
 ```json
 "scripts": {
@@ -89,10 +89,6 @@ const emmc.buildFile({
   wasm: true
 });
 ```
-
-#### CLI Usage
-
-On Development...
 
 ## `useWasm`
 
@@ -155,6 +151,8 @@ $ npm install babel-plugin-wasm
 ## Examples
 
 #### React + C++
+
+[Read the code](./docs)
 
 #### React + Babel + C++
 
