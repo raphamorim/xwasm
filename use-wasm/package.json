@@ -1,9 +1,12 @@
 {
   "name": "use-wasm",
-  "version": "0.0.1",
-  "description": "",
-  "main": "useWasm.js",
-  "keywords": [],
+  "version": "0.0.2",
+  "description": "WASM React Hook",
+  "main": "useWasm.min.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "keywords": ["hook", "use", "emscripten", "emcc", "sdk", "wasm", "webassembly", "react"],
   "author": "Raphael Amorim",
   "license": "MIT"
 }
