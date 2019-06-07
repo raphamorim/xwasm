@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 install_emcc () {
   # Get the emsdk repo
@@ -15,10 +15,8 @@ install_emcc () {
   # Make the "latest" SDK "active" for the current user. (writes ~/.emscripten file)
   ./emsdk activate 1.38.34 # ./emsdk install latest
 
-  pwd
-
   # Activate PATH and other environment variables in the current terminal
-  source ./emsdk_env.sh
+  ./emsdk_env.sh
 }
 
 emcc --version
