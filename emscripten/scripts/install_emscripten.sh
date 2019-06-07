@@ -17,6 +17,8 @@ install_emcc () {
 
   # Activate PATH and other environment variables in the current terminal
   ./emsdk_env.sh
+
+  ./emcc -v
 }
 
 emcc --version
