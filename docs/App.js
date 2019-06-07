@@ -9,7 +9,7 @@ function App() {
   return (
     <Fragment>
       <p>isWasmEnabled: {String(isWasmEnabled())}</p>
-      <p>_doubler: {String(null)}</p>
+      <p>_doubler: {String(instance && instance._doubler(2))}</p>
     </Fragment>
   );
 }

@@ -1,12 +1,16 @@
 ![assets](assets/wasm-sdk.png)
 
-This repository contains some tools for develop with WebAssembly with modern frontend (React, Vue, Babel and etecetera)
+This repository contains some tools for develop with WebAssembly for modern frontend (React, Vue, Babel and etecetera)
 
 #### Summary
 
 - [`useWasm` (React Hook)](#usewasm)
 - [`babel-wasm-plugin`](#babel-wasm-plugin)
 - [`loadWasm` (Vanilla Method)](#loadwasm)
+- [Examples](#examples)
+  - [React + C++](#babel-react)
+  - [Babel + React + C++](#babel-react)
+  - [Babel + React + Rust](#babel-react)
 - [FAQ](#faq)
 - [TODO](#todo)
 
@@ -23,7 +27,7 @@ $ npm install use-wasm
 C++
 
 ```cpp
-int doubler(int x) {
+int _doubler(int x) {
   return 2 * x;
 }
 ```
@@ -102,3 +106,7 @@ const { is_north } = useWasm(({ debug }) => `
 return is_north('North', { debug: 'Debug!' }); // true
 
 ```
+
+## Examples
+
+#### React + C++
