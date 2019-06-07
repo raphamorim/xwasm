@@ -6,11 +6,18 @@
   ],
   "author": "Raphael Amorim",
   "license": "MIT",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "sh ./build.sh",
-    "install-emcc": "sh ./install_emcc.sh",
+    "install-emcc": "sh ./scripts/install_emcc.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "@babel/preset-env": "^7.1.3",
+    "@babel/preset-react": "^7.0.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   }
 }
