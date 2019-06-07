@@ -5,12 +5,13 @@ This repository contains some tools for develop with WebAssembly for modern fron
 #### Summary
 
 - [`useWasm` (React Hook)](#usewasm)
-- [`babel-wasm-plugin`](#babel-wasm-plugin)
+- [`babel-plugin-wasm`](#babel-plugin-wasm)
 - [`loadWasm` (Vanilla Method)](#loadwasm)
+- [`emscripten` Node Wrapper for Emscripten](#emscripten)
 - [Examples](#examples)
   - [React + C++](#react--c)
-  - [Babel + React + C++](#babel-react)
-  - [Babel + React + Rust](#babel-react)
+  - [Babel + React + C++](#react--babel--c)
+  - [Babel + React + Rust](#react--babel--rust)
 - [FAQ](#faq)
 - [TODO](#todo)
 
@@ -64,54 +65,75 @@ render(<App/>, document.querySelector('#root'));
 
 ![Value loading returning instance object](assets/demo-react-hooks-loaded.png)
 
-## `babel-wasm-plugin`
+## `babel-plugin-wasm`
 
 #### Installation
 
 ```sh
-$ npm install babel-wasm-plugin
+$ npm install babel-plugin-wasm
 ```
 
 ## With babel plugin
 
+
+## Emscripten
+
+#### Installation
+
+```bash
+npm install emscripten
+```
+
+#### Module Usage
+
+###### `is_north.rs`
+
+```rust
+#[derive(Debug)]
+enum Direction { North, South, East, West }
+
+fn is_north(dir: Direction) -> bool {
+    match dir {
+        Direction::North => true,
+        _ => false,
+    }
+}
+
+fn main() {
+    let points = Direction::South;
+    println!("{:?}", points);
+    let compass = is_north(points);
+    println!("{}", compass);
+}
+```
+
+###### `index.js`
+
 ```jsx
+import path from 'path';
+import Emscripten from 'emscripten';
 
-const { is_north } = useWasm(`
-  fn is_north(dir: Direction) -> bool {
-      match dir {
-          'North' => true,
-          _ => false,
-      }
-  }
-`);
-
-return is_north('North'); // true
+const emcc = new Emscripten();
+const rustFile = './is_north.rs';
+const emmc.buildFile({
+  input: path.resolve(__dirname, rustFile),
+  output: path.resolve(__dirname, 'rust_file.wasm'),
+  wasm: true
+});
 
 ```
 
+#### CLI Usage
 
-```jsx
-
-const { is_north } = useWasm(({ debug }) => `
-  fn is_north(dir: Direction) -> bool {
-      println!("{:?}", ${debug});
-
-      match dir {
-          'North' => true,
-          _ => false,
-      }
-  }
-`);
-
-return is_north('North', { debug: 'Debug!' }); // true
-
-```
+On Development...
 
 ## Examples
 
 #### React + C++
 
 #### React + Babel + C++
+
+On going...
 
 #### React + Babel + Rust
 
