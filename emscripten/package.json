@@ -2,7 +2,7 @@
   "preferGlobal": true,
   "name": "emscripten",
   "emscripten": "1.38.34",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node API for Emscripten SDK",
   "keywords": ["node", "emscripten", "emcc", "sdk", "wasm", "webassembly"],
   "author": "Raphael Amorim",

@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react';
 import { render } from 'react-dom';
-import useWasm from './useWasm';
+import useWasm from 'use-wasm';
 
 function App() {
   // method will initialize null til load the wasm
