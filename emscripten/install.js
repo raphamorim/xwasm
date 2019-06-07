@@ -1,7 +1,7 @@
 function InstallEmscripten(rootPath) {
   const path = require('path');
   const fs = require('fs');
-  const { spawn } = require('child_process');
+  const { spawn, execSync } = require('child_process');
 
   console.log('Installing SDK in:', process.cwd())
 
@@ -11,6 +11,7 @@ function InstallEmscripten(rootPath) {
   ) ? path.resolve(rootPath, './scripts/install_emscripten.sh') :
       path.resolve(rootPath, './emscripten/scripts/install_emscripten.sh')
 
+  execSync('chmod +x ' + scriptPath);
   const child = spawn('sh', [ scriptPath ]);
 
   child.stdout.setEncoding('utf8');
