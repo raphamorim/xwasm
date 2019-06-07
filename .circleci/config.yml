@@ -30,6 +30,10 @@ aliases:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
+          name: Test Emscripten-CLI and Install SDK
+          command: sh ./scripts/test_emscripten_cli.sh
+
+      - run:
           name: Lint and Test packages
           command: yarn test
 

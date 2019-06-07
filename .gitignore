@@ -3,3 +3,6 @@ node_modules
 *.log
 *.map
 .vscode
+
+# debug purposes
+emsdk
