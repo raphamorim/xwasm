@@ -1,12 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const sourcePath = path.join(__dirname, 'src');
-const reactApePath = path.join(__dirname, '../react-ape');
+// const useWasmPath = path.join(__dirname, '../use-wasm');
 
 const config = {
   mode: 'development',
-  entry: [path.resolve(sourcePath, 'App.js')],
+  entry: path.join(__dirname, 'App.js'),
   output: {
     path: __dirname,
     filename: 'bundle.js',
@@ -15,11 +14,10 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      sourcePath,
-      reactApePath,
+      // useWasmPath,
       path.resolve(__dirname, 'node_modules'),
       // yarn-workspaces
-      path.resolve(__dirname, '../../node_modules'),
+      path.resolve(__dirname, '../node_modules'),
     ],
   },
   module: {
@@ -28,7 +26,7 @@ const config = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-        include: [reactApePath, sourcePath],
+        // include: [useWasmPath],
       },
     ],
   },

@@ -2,12 +2,14 @@
   "private": true,
   "workspaces": [
     "use-wasm",
+    "playground",
     "babel-wasm"
   ],
   "author": "Raphael Amorim",
   "license": "MIT",
   "main": "index.js",
   "scripts": {
+    "run-playground": "cd playground && yarn start",
     "build": "sh ./build.sh",
     "install-emcc": "sh ./scripts/install_emcc.sh",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -14,13 +14,27 @@ int doubler(int x) {
 
 ```jsx
 
-const { doubler } = useWasm({ 
-  file: 'doubler.wasm'
-});
-  
-doubler(2) // 4
+import React, { Fragment, Component } from 'react';
+import { render } from 'react-dom';
+import useWasm from 'use-wasm';
+
+function App() {
+  // method will initialize null til load the "./doubler.wasm"
+  const { isWasmEnabled, instance } = useWasm('doubler');
+
+  return (
+    <Fragment>
+      <p>isWasmEnabled: {String(isWasmEnabled())}</p>
+      <p>_doubler: {String(instance && instance._doubler(2))}</p>
+    </Fragment>
+  );
+}
+
+render(<App/>, document.querySelector('#root'));
 
 ```
+
+![Value loading returning null](assets/demo-react-hooks-loading.png) ![Value loading returning instance object](assets/demo-react-hooks-loaded.png)
 
 ## With babel plugin
 
