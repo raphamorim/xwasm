@@ -31,7 +31,7 @@ aliases:
 
       - run:
           name: Test Emscripten-CLI and Install SDK
-          command: sh ./scripts/test_emscripten_cli.sh
+          command: cd emscripten && sh ./test_emcc.sh
 
       - run:
           name: Lint and Test packages

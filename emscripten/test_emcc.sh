@@ -1,4 +1,6 @@
-node ./emscripten/index.js install
+#!/bin/bash
+
+node ./index.js install
 
 emcc --version
 if [ $? -eq 0 ]; then
