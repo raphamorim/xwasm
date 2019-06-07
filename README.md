@@ -8,7 +8,7 @@ This repository contains some tools for develop with WebAssembly for modern fron
 - [`babel-wasm-plugin`](#babel-wasm-plugin)
 - [`loadWasm` (Vanilla Method)](#loadwasm)
 - [Examples](#examples)
-  - [React + C++](#babel-react)
+  - [React + C++](#react--c)
   - [Babel + React + C++](#babel-react)
   - [Babel + React + Rust](#babel-react)
 - [FAQ](#faq)
@@ -110,3 +110,19 @@ return is_north('North', { debug: 'Debug!' }); // true
 ## Examples
 
 #### React + C++
+
+#### React + Babel + C++
+
+#### React + Babel + Rust
+
+On going...
+
+## References
+
+- https://webassembly.org/getting-started/developers-guide
+- https://emscripten.org/docs/compiling/WebAssembly.html
+- https://developer.mozilla.org/en-US/docs/WebAssembly
+- https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm
+- https://developer.mozilla.org/en-US/docs/WebAssembly/Using_the_JavaScript_API
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory
+- https://github.com/emscripten-core/emscripten/issues/8126
