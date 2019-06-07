@@ -2,14 +2,12 @@
 
 install_emcc () {
   # Get the emsdk repo
-  git clone https://github.com/emscripten-core/emsdk.git
+  git clone https://github.com/emscripten-core/emsdk.git ./emsdk
 
   # Enter that directory
-  cd emsdk
-
   # Fetch the latest version of the emsdk
   # Use 1.38.34 (https://github.com/emscripten-core/emsdk/commit/188c3edb9b7edafeaef4f4658a19dbcd99e81a37)
-  git pull && git checkout 188c3edb9b7edafeaef4f4658a19dbcd99e81a37
+  cd emsdk && git pull && git checkout 188c3edb9b7edafeaef4f4658a19dbcd99e81a37
 
   # Download and install the latest SDK tools.
   ./emsdk install 1.38.34  # ./emsdk install latest
@@ -23,7 +21,7 @@ install_emcc () {
 
 emcc --version
 if [ $? -eq 0 ]; then
-  echo 'emcc: check'
+  echo 'emcc: checked'
 else
   install_emcc
 fi
