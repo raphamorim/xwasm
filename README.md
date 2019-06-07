@@ -13,6 +13,7 @@ This repository contains some tools for develop with WebAssembly for modern fron
   - [Babel + React + Rust](#react--babel--rust)
 - [FAQ](#faq)
 - [TODO](#todo)
+- [References](#references)
 
 ## `emscripten`
 
@@ -163,6 +164,11 @@ On going...
 #### React + Babel + Rust
 
 On going...
+
+## TODO
+
+- [ ] Emscripten support for Windows
+- [ ] Write examples using Rust
 
 ## References
 
