@@ -11,7 +11,6 @@ function InstallEmscripten(rootPath) {
   ) ? path.resolve(rootPath, './scripts/install_emscripten.sh') :
       path.resolve(rootPath, './emscripten/scripts/install_emscripten.sh')
 
-  execSync('chmod +x ' + scriptPath);
   const child = spawn('sh', [ scriptPath ]);
 
   child.stdout.setEncoding('utf8');
