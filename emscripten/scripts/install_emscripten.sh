@@ -10,13 +10,13 @@ install_emcc () {
   cd emsdk && git pull && git checkout 188c3edb9b7edafeaef4f4658a19dbcd99e81a37
 
   # Download and install the latest SDK tools.
-  ./emsdk install 1.38.34  # ./emsdk install latest
+  cd emsdk && ./emsdk install 1.38.34  # ./emsdk install latest
 
   # Make the "latest" SDK "active" for the current user. (writes ~/.emscripten file)
-  ./emsdk activate 1.38.34 # ./emsdk install latest
+  cd emsdk && ./emsdk activate 1.38.34 # ./emsdk install latest
 
   # Activate PATH and other environment variables in the current terminal
-  source ./emsdk_env.sh
+  cd emsdk && source ./emsdk_env.sh
 }
 
 emcc --version
