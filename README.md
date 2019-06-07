@@ -4,10 +4,9 @@ This repository contains some tools for develop with WebAssembly for modern fron
 
 #### Summary
 
-- [`emscripten` Node wrapper API for Emscripten](#emscripten)
+- [`emscripten` Node API for Emscripten SDK](#emscripten)
 - [`useWasm` (React Hook)](#usewasm)
 - [`babel-plugin-wasm`](#babel-plugin-wasm)
-- [`loadWasm` (Vanilla Method)](#loadwasm)
 - [Examples](#examples)
   - [React + C++](#react--c)
   - [Babel + React + C++](#react--babel--c)
@@ -15,7 +14,61 @@ This repository contains some tools for develop with WebAssembly for modern fron
 - [FAQ](#faq)
 - [TODO](#todo)
 
-## useWasm
+## `emscripten`
+
+Node module for [Emscripten SDK](https://github.com/emscripten-core/emsdk) API.
+
+Note: Only OS X and Linux support. Windows support in development.
+
+#### Installation
+
+```bash
+npm install emscripten
+```
+
+#### Module Usage
+
+###### `is_north.rs`
+
+```rust
+#[derive(Debug)]
+enum Direction { North, South, East, West }
+
+fn is_north(dir: Direction) -> bool {
+    match dir {
+        Direction::North => true,
+        _ => false,
+    }
+}
+
+fn main() {
+    let points = Direction::South;
+    println!("{:?}", points);
+    let compass = is_north(points);
+    println!("{}", compass);
+}
+```
+
+###### `index.js`
+
+```jsx
+import path from 'path';
+import Emscripten from 'emscripten';
+
+const emcc = new Emscripten();
+const isNorthPath = './is_north.rs';
+const emmc.buildFile({
+  input: path.resolve(__dirname, isNorthPath),
+  output: path.resolve(__dirname, 'is_north.wasm'),
+  wasm: true
+});
+```
+
+#### CLI Usage
+
+On Development...
+
+## `useWasm`
 
 ### Installing
 
@@ -72,60 +125,6 @@ render(<App/>, document.querySelector('#root'));
 ```sh
 $ npm install babel-plugin-wasm
 ```
-
-## With babel plugin
-
-
-## Emscripten
-
-#### Installation
-
-```bash
-npm install emscripten
-```
-
-#### Module Usage
-
-###### `is_north.rs`
-
-```rust
-#[derive(Debug)]
-enum Direction { North, South, East, West }
-
-fn is_north(dir: Direction) -> bool {
-    match dir {
-        Direction::North => true,
-        _ => false,
-    }
-}
-
-fn main() {
-    let points = Direction::South;
-    println!("{:?}", points);
-    let compass = is_north(points);
-    println!("{}", compass);
-}
-```
-
-###### `index.js`
-
-```jsx
-import path from 'path';
-import Emscripten from 'emscripten';
-
-const emcc = new Emscripten();
-const rustFile = './is_north.rs';
-const emmc.buildFile({
-  input: path.resolve(__dirname, rustFile),
-  output: path.resolve(__dirname, 'is_north.wasm'),
-  wasm: true
-});
-
-```
-
-#### CLI Usage
-
-On Development...
 
 ## Examples
 

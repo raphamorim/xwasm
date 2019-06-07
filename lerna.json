@@ -1,0 +1,9 @@
+{
+  "lerna": "3.10.8",
+  "packages": [
+    "babel-plugin-wasm",
+    "use-wasm",
+    "emscripten"
+  ],
+  "version": "0.0.1"
+}
