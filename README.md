@@ -5,8 +5,8 @@ This repository contains some tools for develop with WebAssembly for modern fron
 #### Summary
 
 - [`emscripten` Node API for Emscripten SDK](#emscripten)
-- [`useWasm` (React Hook)](#usewasm)
-- [`babel-plugin-wasm`](#babel-plugin-wasm)
+- [`babel-plugin-wasm` Convert C++/Rust code to WASM in the parse](#babel-plugin-wasm)
+- [`useWasm` React Hook for load wasm files](#usewasm)
 - [Examples](#examples)
   - [React + C++](#react--c)
   - [Babel + React + C++](#react--babel--c)
@@ -141,6 +141,8 @@ render(<App/>, document.querySelector('#root'));
 ![Value loading returning instance object](assets/demo-react-hooks-loaded.png)
 
 ## `babel-plugin-wasm`
+
+!! Still under development !!
 
 #### Installation
 
