@@ -4,7 +4,7 @@
   "author": "Raphael Amorim <rapha850@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "emscripten build && webpack",
     "start": "webpack-dev-server"
   },
   "devDependencies": {

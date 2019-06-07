@@ -22,11 +22,37 @@ Note: Only OS X and Linux support. Windows support in development.
 
 #### Installation
 
+It's going to install Emscripten SDK on postinstall hook.
+
 ```bash
 npm install emscripten
 ```
 
-#### Module Usage
+#### CLI Usage
+
+1. Create a file: `emscripten.config.js`
+
+```jsx
+const filesToProcess = [
+  {
+    input: 'doubler.c',
+    output: 'doubler.wasm',
+    functions: '["_doubler"]'
+  }
+]
+
+module.exports = filesToProcess;
+```
+
+2. Now if you run `emscripten build`, it's going to load the configuration above. You can add it for example (if you want to) before any build task.
+
+```json
+"scripts": {
+  "build": "emscripten build && webpack",
+``` 
+
+
+#### Module Usage (Not available yet, still under development)
 
 ###### `is_north.rs`
 

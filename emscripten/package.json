@@ -7,7 +7,7 @@
   "keywords": ["node", "emscripten", "emcc", "sdk", "wasm", "webassembly"],
   "author": "Raphael Amorim",
   "scripts": {
-    "postinstall": "node ./install.js"
+    "postinstall": "node ./index.js install"
   },
   "bin": {
     "emscripten": "index.js"
