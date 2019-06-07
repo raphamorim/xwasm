@@ -16,6 +16,13 @@ switch (command) {
     require('./install')(process.cwd());
     break;
 
+  case 'build':
+    if (!argv[3] || !argv[4] || !argv[5]) {
+      return guide();
+    }
+    require('./build')(process.cwd(), argv[3], argv[4], argv[5])
+    break;
+
   case 'version':
     const pck = require('./package.json');
     console.log('CLI Version: ' + pck.version);
