@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 install_emcc () {
   # Get the emsdk repo
