@@ -16,8 +16,7 @@ install_emcc () {
   ./emsdk activate 1.38.34 # ./emsdk install latest
 
   # Activate PATH and other environment variables in the current terminal
-  # source ./emsdk_env.sh
-  ./emsdk_set_env.sh
+  cd ../emsdk && source ./emsdk_env.sh
 }
 
 emcc --version
