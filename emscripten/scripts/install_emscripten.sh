@@ -4,6 +4,8 @@ install_emcc () {
   # Get the emsdk repo
   git clone https://github.com/emscripten-core/emsdk.git ./emsdk
 
+  chmod +x ./emsdk
+
   # Enter that directory
   # Fetch the latest version of the emsdk
   # Use 1.38.34 (https://github.com/emscripten-core/emsdk/commit/188c3edb9b7edafeaef4f4658a19dbcd99e81a37)
@@ -16,9 +18,7 @@ install_emcc () {
   ./emsdk activate 1.38.34 # ./emsdk install latest
 
   # Activate PATH and other environment variables in the current terminal
-  ./emsdk_env.sh
-
-  ./emcc -v
+  source ./emsdk_env.sh
 }
 
 emcc --version
