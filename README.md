@@ -4,10 +4,10 @@ This repository contains some tools for develop with WebAssembly for modern fron
 
 #### Summary
 
+- [`emscripten` Node wrapper API for Emscripten](#emscripten)
 - [`useWasm` (React Hook)](#usewasm)
 - [`babel-plugin-wasm`](#babel-plugin-wasm)
 - [`loadWasm` (Vanilla Method)](#loadwasm)
-- [`emscripten` Node Wrapper for Emscripten](#emscripten)
 - [Examples](#examples)
   - [React + C++](#react--c)
   - [Babel + React + C++](#react--babel--c)
@@ -117,7 +117,7 @@ const emcc = new Emscripten();
 const rustFile = './is_north.rs';
 const emmc.buildFile({
   input: path.resolve(__dirname, rustFile),
-  output: path.resolve(__dirname, 'rust_file.wasm'),
+  output: path.resolve(__dirname, 'is_north.wasm'),
   wasm: true
 });
 
