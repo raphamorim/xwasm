@@ -19,7 +19,7 @@ switch (command) {
 
   case 'build':
     if (!argv[3] || !argv[4] || !argv[5]) {
-      const pkgPath = path.resolve(process.cwd(), 'emscripten.config.js');
+      const pkgPath = path.resolve(process.cwd(), 'emcc.config.js');
       console.log('loading from ' + pkgPath);
       const build = require('./build');
       const files = require(pkgPath).forEach(file => {

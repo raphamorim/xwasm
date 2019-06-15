@@ -1,7 +1,6 @@
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
-
-// const useWasmPath = path.join(__dirname, '../use-wasm');
 
 const config = {
   mode: 'development',
@@ -14,10 +13,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      // useWasmPath,
-      path.resolve(__dirname, 'node_modules'),
-      // yarn-workspaces
-      path.resolve(__dirname, '../node_modules'),
+      path.resolve(__dirname, 'node_modules')
     ],
   },
   module: {
@@ -26,7 +22,6 @@ const config = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-        // include: [useWasmPath],
       },
     ],
   },
@@ -41,5 +36,11 @@ const config = {
     },
   },
 };
+
+// [optional] yarn-workspaces if needed
+const workpacesPath = path.resolve(__dirname, '../node_modules');
+if (fs.existsSync(workpacesPath)) {
+  config.resolve.modules.push(workpacesPath);
+}
 
 module.exports = config;

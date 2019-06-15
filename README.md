@@ -4,6 +4,12 @@ This repository contain tools for develop modern frontend with WebAssembly (Reac
 
 Please don't use it in production. It's not stable yet.
 
+#### Starting in less than 5 minutes (optional)
+
+```
+curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh | bash
+```
+
 #### Summary
 
 - [`emscripten` Node API for Emscripten SDK](#emscripten)
@@ -33,7 +39,7 @@ npm install emscripten
 
 #### CLI Usage
 
-1. Create a file: `emscripten.config.js`
+1. Create a file: `emcc.config.js`
 
 ```jsx
 const filesToProcess = [

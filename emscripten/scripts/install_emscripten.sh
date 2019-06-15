@@ -1,7 +1,6 @@
 #!/bin/bash
 
-install_emcc () {
-  # Get the emsdk repo
+osx_install_emcc () {
   git clone https://github.com/emscripten-core/emsdk.git ./emsdk
 
   chmod +x ./emsdk
@@ -25,5 +24,5 @@ emcc --version
 if [ $? -eq 0 ]; then
   echo 'emcc: checked'
 else
-  install_emcc
+  osx_install_emcc
 fi
