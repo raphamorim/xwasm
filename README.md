@@ -4,10 +4,10 @@ This repository contain tools for develop modern frontend with WebAssembly (Reac
 
 Please don't use it in production. It's not stable yet.
 
-#### Starting in less than 5 minutes (optional)
+#### Create a project with WASM in less than 5 minutes (optional)
 
 ```
-curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh | bash
+curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh?token=AA3WKCS2HVPMJLB2LHBOLHC5AV6TI | bash
 ```
 
 #### Summary
@@ -25,7 +25,7 @@ curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/cre
 
 ## `emscripten`
 
-Node module for [Emscripten SDK](https://github.com/emscripten-core/emsdk) API.
+Node module for [Emscripten SDK](https://github.com/emscripten-core/emsdk) API. It will try to install SDK if you don't have Emscripten installed.
 
 Note: Only OS X and Linux support. Windows support in development.
 
