@@ -7,7 +7,7 @@ Please don't use it in production. It's not stable yet.
 #### Create a project with WASM in less than 5 minutes (optional)
 
 ```
-curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh?token=AA3WKCS2HVPMJLB2LHBOLHC5AV6TI | bash
+curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh | bash
 ```
 
 #### Summary
