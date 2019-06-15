@@ -1,7 +1,8 @@
 version: 2
 aliases:
   build_config: &build_config
-    working_directory: ~/repo
+    environment:
+       BASH_ENV: ~/.bashrc
 
     steps:
       - checkout
@@ -10,6 +11,14 @@ aliases:
       - run:
           name: Node version
           command: node -v
+
+      - run:
+          name: EMCC version
+          command: emcc --version
+
+      - run:
+          name: Install Yarn
+          command: curl -o- -L https://yarnpkg.com/install.sh | bash
 
       - run:
           name: Yarn version
@@ -32,7 +41,7 @@ aliases:
       - run:
           type: shell
           name: Test Emscripten-CLI and Install SDK
-          command: cd emscripten && ./test_emcc.sh
+          command: cd emscripten && source ./test_emcc.sh
 
       - run:
           name: Lint and Test packages
@@ -41,5 +50,5 @@ aliases:
 jobs:
   build:
     docker:
-      - image: circleci/node:10.15.1
+      - image: trzeci/emscripten:sdk-tag-1.38.32-64bit
     <<: *build_config

@@ -1,12 +1,14 @@
 ![assets](assets/wasm-sdk.png)
 
-This repository contains some tools for develop with WebAssembly for modern frontend (React, Vue, Babel and etecetera)
+This repository contain tools for develop modern frontend with WebAssembly (React, Vue, Babel and etecetera). 
+
+Please don't use it in production. It's not stable yet.
 
 #### Summary
 
 - [`emscripten` Node API for Emscripten SDK](#emscripten)
-- [`babel-plugin-wasm` Convert C++/Rust code to WASM in the parse](#babel-plugin-wasm)
-- [`useWasm` React Hook for load wasm files](#usewasm)
+- [`babel-plugin-wasm` Convert C++/Rust code to WASM in the babel parse](#babel-plugin-wasm)
+- [`useWasm` React Hook for load WASM files](#usewasm)
 - [Examples](#examples)
   - [React + C++](#react--c)
   - [Babel + React + C++](#react--babel--c)
@@ -51,7 +53,6 @@ module.exports = filesToProcess;
 "scripts": {
   "build": "emscripten build && webpack",
 ``` 
-
 
 #### Module Usage (Not available yet, still under development)
 
@@ -101,7 +102,7 @@ $ npm install use-wasm
 
 ### Usage
 
-C++
+C++ code
 
 ```cpp
 int _doubler(int x) {
@@ -109,7 +110,7 @@ int _doubler(int x) {
 }
 ```
 
-Frontend code with React
+JSX code with React
 
 ```jsx
 
@@ -167,8 +168,11 @@ On going...
 
 ## TODO
 
-- [ ] Emscripten support for Windows
-- [ ] Write examples using Rust
+- [ ] useWasm: Cache logic for fetching WASM files
+- [ ] Emscripten: Cache for build
+- [ ] Emscripten: Add support for Windows
+- [ ] Emscripten: Add support for load different files into one export
+- [ ] Write examples using Rust 
 
 ## References
 
