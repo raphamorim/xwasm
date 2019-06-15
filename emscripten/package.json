@@ -2,7 +2,7 @@
   "preferGlobal": true,
   "name": "emscripten",
   "emscripten": "1.38.34",
-  "version": "0.0.2",
+  "version": "0.0.2-beta",
   "description": "Node API for Emscripten SDK",
   "keywords": ["node", "emscripten", "emcc", "sdk", "wasm", "webassembly"],
   "author": "Raphael Amorim",
@@ -14,6 +14,8 @@
   },
   "files": [
     "scripts/",
+    "install.js",
+    "build.js",
     "index.js"
   ],
   "license": "MIT"
