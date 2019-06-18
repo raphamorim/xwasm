@@ -4,8 +4,7 @@ This repository contain tools for develop modern frontend with WebAssembly (Reac
 
 Please don't use it in production. It's not stable yet.
 
-### 
-
+![Diagram](assets/diagram.png)
 
 #### Create a project with WASM in less than 5 minutes (optional)
 
