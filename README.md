@@ -37,9 +37,47 @@ curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/cre
 - [TODO](#todo)
 - [References](#references)
 
-## `xmasm`
+## `xwasm`
 
 WebAssembly Packager (understand ~or should~ Rust/C/C++/Go/Python).
+
+It will install modules/environment on demand. However you can run separate commands to install enviroment:
+
+- `$ xwasm install cpp` (install C/C++ required dependencies [emcc])
+
+- `$ xwasm check cpp` (check C/C++ dependencies status)
+
+- `$ xwasm install rust` (install Rust required dependencies [cargo])
+
+- `$ xwasm check rust` (check C/C++ dependencies status)
+
+#### Building with
+
+1. Create a file: `xwasm.config.js`
+
+```jsx
+const filesToProcess = [
+  {
+    input: 'doubler.c',
+    output: 'doubler.wasm',
+    functions: ['doubler'] // functions that you want to export
+  },
+  {
+    // by default output will follow input filename, in this case: "counter.wasm"
+    input: 'counter.rs,
+    functions: ['counter']  // functions that you want to export
+  }
+]
+
+module.exports = filesToProcess;
+```
+
+2. Now if you run `xwasm`, it's going to load the configuration above. If you want to, you can add it before any build task. For example:
+
+```json
+"scripts": {
+  "build": "xwasm && webpack",
+``` 
 
 ## `emscripten`
 
@@ -55,30 +93,7 @@ It's going to install Emscripten SDK on postinstall hook.
 npm install emscripten
 ```
 
-#### CLI Usage
-
-1. Create a file: `emcc.config.js`
-
-```jsx
-const filesToProcess = [
-  {
-    input: 'doubler.c',
-    output: 'doubler.wasm',
-    functions: '["_doubler"]'
-  }
-]
-
-module.exports = filesToProcess;
-```
-
-2. Now if you run `emscripten build`, it's going to load the configuration above. If you want to, you can add it before any build task. For example:
-
-```json
-"scripts": {
-  "build": "emscripten build && webpack",
-``` 
-
-#### Module Usage (Not available yet, still under development)
+Not available yet, still under development.
 
 ###### `is_north.rs`
 
