@@ -10,6 +10,17 @@ Please don't use it in production. It's not stable yet.
 curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh | bash
 ```
 
+## Supported Languages
+
+| Language | Status | Notes |
+| :---         | :---         | :---         |
+| C++   | Under development     | Still very experimental    |
+| Go     | Under development       | Test phase      |
+| Rust     | On Roadmap       | -      |
+| Python     | On Roadmap       | -      |
+| Kotlin     | On Roadmap       | -      |
+| Lua     | On Roadmap       | -      |
+
 #### Summary
 
 - [`emscripten` Node API for Emscripten SDK](#emscripten)
