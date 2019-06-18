@@ -1,0 +1,12 @@
+{
+  "name": "xwasm",
+  "version": "0.0.2",
+  "description": "Pack Rust/C/C++/Go/Python code to WebAssembly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Raphael Amorim",
+  "license": "MIT"
+}
