@@ -9,7 +9,7 @@ Please don't use it in production. It's not stable yet.
 #### Create a project with WASM in less than 5 minutes (optional)
 
 ```
-curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/create-project.sh | bash
+curl -o- -L https://raw.githubusercontent.com/raphamorim/xwasm/master/scripts/create-project.sh | bash
 ```
 
 ## Supported Languages
@@ -19,7 +19,6 @@ curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/cre
 | C++   | Under development     | Still very experimental    |
 | Rust     | Under development       | Test phase      |
 | Go     | On Roadmap       | -      |
-| Python     | On Roadmap       | -      |
 | Kotlin     | On Roadmap       | -      |
 | Lua     | On Roadmap       | -      |
 
@@ -39,7 +38,7 @@ curl -o- -L https://raw.githubusercontent.com/raphamorim/wasm/master/scripts/cre
 
 ## `xwasm`
 
-WebAssembly Packager (understand ~or should~ Rust/C/C++/Go/Python).
+WebAssembly Packager (understand ~or should~ Rust/C/C++/Go/Lua).
 
 It will install modules/environment on demand. However you can run separate commands to install enviroment:
 
@@ -79,7 +78,7 @@ module.exports = filesToProcess;
   "build": "xwasm && webpack",
 ``` 
 
-## `emscripten`
+## `emscripten` (under development)
 
 Node module for [Emscripten SDK](https://github.com/emscripten-core/emsdk) API. It will try to install SDK if you don't have Emscripten installed.
 

@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "license": "MIT",
   "scripts": {
-    "build": "emscripten build && webpack",
+    "build": "xwasm && webpack",
     "start": "webpack-dev-server"
   },
   "devDependencies": {
@@ -11,7 +11,7 @@
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": ">=3.1.11",
     "use-wasm": "^0.0.2",
-    "emscripten": "^0.0.2-beta",
+    "xwasm": "^0.0.2-beta",
     "@babel/core": "^7.0.0",
     "babel-loader": "^8.0.5",
     "@babel/preset-env": "^7.1.3",

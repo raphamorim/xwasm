@@ -1,3 +1,3 @@
-# xwasm
+# Emscripten
 
-Docs: https://github.com/raphamorim/wasm
+Docs: https://github.com/raphamorim/xwasm
