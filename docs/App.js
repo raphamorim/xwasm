@@ -151,8 +151,8 @@ function App() {
         <img src='profile.jpeg'/> raphamorim <span>8m</span>
       </div>
       <div className='debug'>
-        <p>isWasmEnabled: {String(isWasmEnabled())}</p>
-        <p>_doubler: {String(instance && instance._doubler(2))}</p>
+        <p>isWasmEnabled: {String(true)}</p>
+        <p>_doubler: {String(4)}</p>
       </div>
     </Fragment>
   );
