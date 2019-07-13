@@ -1,6 +1,6 @@
 import React, { Fragment, Component, useEffect, useState } from 'react';
 import { render } from 'react-dom';
-import useWasm from 'use-wasm';
+// import useWasm from 'use-wasm';
 
 const FILTER_LIMIT = 4;
 

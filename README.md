@@ -207,9 +207,9 @@ On going...
 ## TODO
 
 - [ ] useWasm: Cache logic for fetching WASM files
-- [ ] Emscripten: Cache for build
-- [ ] Emscripten: Add support for Windows
-- [ ] Emscripten: Add support for load different files into one export
+- [ ] xwasm/emscripten: Cache for build
+- [ ] xwasm/emscripten: Add support for Windows
+- [ ] xwasm/emscripten: Add support for load different files into one export
 - [ ] Write examples using Rust 
 
 ## References

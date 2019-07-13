@@ -3,9 +3,9 @@
   "name": "xwasm",
   "emscripten": "1.38.34",
   "version": "0.0.2-beta",
-  "description": "Node API for Emscripten SDK",
+  "description": "Packager for WASM",
   "keywords": ["node", "xwasm", "emscripten", "emcc", "sdk", "wasm", "webassembly"],
-  "author": "Raphael Amorim",
+  "author": "Raphael Amorim <rapha850@gmail.com>",
   "scripts": {
     "postinstall": "node ./index.js install"
   },
