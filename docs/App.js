@@ -64,10 +64,11 @@ function newProcessWasm(canvas, context, instance) {
   const doubler = instance && instance._doubler;
   let data = imageData.data;
 
+  const value = doubler(Math.floor(Math.random() * 40) + 120);
   for(let i = 0; i < data.length; i += 4) {
-    data[i] = doubler(100) - data[i];
-    data[i + 1] = doubler(100) -  data[i + 1];
-    data[i + 2] = doubler(100) -  data[i + 2];
+    data[i] = value - data[i];
+    data[i + 1] = value -  data[i + 1];
+    data[i + 2] = value -  data[i + 2];
   }
 
   context.putImageData(imageData, 0, 0);
