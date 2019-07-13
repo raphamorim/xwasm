@@ -29,10 +29,20 @@ function useWasm(filename) {
       }
     };
 
-    const load = WebAssembly.instantiateStreaming(fetch(filepath), importObj)
-      .then(results => {
+    if (typeof WebAssembly.instantiateStreaming === 'function') {
+      const load = WebAssembly.instantiateStreaming(fetch(filepath), importObj)
+        .then(results => {
+          setInstance(results.instance.exports)
+        });
+    } else {
+      fetch(filepath).then(response =>
+        response.arrayBuffer()
+      ).then(bytes =>
+        WebAssembly.instantiate(bytes, importObj)
+      ).then(results => {
         setInstance(results.instance.exports)
       });
+    }
   }, []);
 
   return {

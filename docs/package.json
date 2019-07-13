@@ -10,7 +10,7 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": ">=3.1.11",
-    "use-wasm": "^0.0.2",
+    "use-wasm": "^0.0.3",
     "xwasm": "^0.0.2-beta",
     "@babel/core": "^7.0.0",
     "babel-loader": "^8.0.5",

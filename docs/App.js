@@ -1,6 +1,6 @@
 import React, { Fragment, Component, useEffect, useState } from 'react';
 import { render } from 'react-dom';
-// import useWasm from 'use-wasm';
+import useWasm from '../use-wasm/index.js';
 
 const FILTER_LIMIT = 4;
 
@@ -33,7 +33,7 @@ export function scaleDPI(canvas, context, customWidth, customHeight) {
   return ratio;
 }
 
-function setImage(filter) {
+function setImage(filter, instance) {
   const canvas = document.getElementById('preview');
   const ctx = canvas.getContext('2d');
   const image = document.getElementById('source');
@@ -54,9 +54,47 @@ function setImage(filter) {
       processChris(canvas, ctx);
       break;
     case 4:
-      // processWasm(canvas, ctx);
+      newProcessWasm(canvas, ctx, instance);
       break;
   }
+}
+
+function newProcessWasm(canvas, context, instance) {
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const doubler = instance && instance._doubler;
+  let data = imageData.data;
+
+  for(let i = 0; i < data.length; i += 4) {
+    data[i] = doubler(100) - data[i];
+    data[i + 1] = doubler(100) -  data[i + 1];
+    data[i + 2] = doubler(100) -  data[i + 2];
+  }
+
+  context.putImageData(imageData, 0, 0);
+}
+
+function processWasm(canvas, ctx, instance) {
+  let buffer;
+  let error;
+  let result;
+
+  const Module = instance.module;
+  console.log(Module)
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const pixels = imageData.data;
+  const typedArray = new Float32Array(pixels.length);
+
+  for (let i=0; i<pixels.length; i++) {
+    typedArray[i] = pixels[i]
+  }
+
+  buffer = Module._malloc(typedArray.length * typedArray.BYTES_PER_ELEMENT)
+
+  Module.HEAPF32.set(typedArray, buffer >> 2)
+
+  // Finally, call the function with "number" parameter type for the array (the pointer), and an extra length parameter
+  result = Module.ccall("addNums", null, ["number", "number"], [buffer, arrayDataToPass.length])
+
 }
 
 const sepia = (imageData, adj) => {
@@ -72,12 +110,13 @@ const sepia = (imageData, adj) => {
 
 function processChris(canvas, context) {
   const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  let data = imageData.data;
+  let pixels = imageData.data;
 
-  for(let i = 0; i < data.length; i += 4) {
-    data[i] = 255 - data[i];
-    data[i + 1] = 255 - data[i + 1];
-    data[i + 2] = 255 - data[i + 2];
+  for (var i = 0, n = pixels.length; i < n; i += 4) {
+    const grayscale = pixels[i] * .3 + pixels[i+1] * .59 + pixels[i+2] * .11;
+    pixels[i] = grayscale;
+    pixels[i+1] = grayscale;
+    pixels[i+2] = grayscale;
   }
 
   context.putImageData(imageData, 0, 0);
@@ -130,11 +169,11 @@ function processBenjamin(canvas, context) {
 // 3 wasm
 
 function App() {
-  // const { isWasmEnabled, instance } = useWasm('doubler');
+  const { isWasmEnabled, instance } = useWasm('doubler');
   const [ filter, setFilter ] = useState(0);
 
   useEffect(() => {
-    setImage(filter);
+    setImage(filter, instance);
   }, [filter]);
 
   return (
@@ -151,8 +190,8 @@ function App() {
         <img src='profile.jpeg'/> raphamorim <span>8m</span>
       </div>
       <div className='debug'>
-        <p>isWasmEnabled: {String(true)}</p>
-        <p>_doubler: {String(4)}</p>
+        <p>isWasmEnabled: {String(isWasmEnabled())}</p>
+        <p>_doubler: {String(instance && instance._doubler(2))}</p>
       </div>
     </Fragment>
   );
