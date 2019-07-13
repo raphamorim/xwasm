@@ -130,7 +130,7 @@ function processBenjamin(canvas, context) {
 // 3 wasm
 
 function App() {
-  const { isWasmEnabled, instance } = useWasm('doubler');
+  // const { isWasmEnabled, instance } = useWasm('doubler');
   const [ filter, setFilter ] = useState(0);
 
   useEffect(() => {
