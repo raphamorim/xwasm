@@ -44,6 +44,13 @@ canvas {
   left: calc(50% - (600px / 2));
 }
 
+@media screen and (max-width: 680px) {
+  canvas {
+    max-width: 100%;
+    left: 0;
+  }
+}
+
 .debug {
   position: absolute;
   left: 50%;
@@ -53,6 +60,12 @@ canvas {
   color: white;
   font-size: 30px;
   padding: 15px;
+}
+
+@media screen and (max-width: 680px) {
+  .debug {
+    left: 15px;
+  }
 }
 
 .profile {
@@ -68,6 +81,12 @@ canvas {
   display: flex;
   font-size: 20 px;
   align-items: center;
+}
+
+@media screen and (max-width: 680px) {
+  .profile {
+    left: 0;
+  }
 }
 
 .profile::before {
