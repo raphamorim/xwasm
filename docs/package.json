@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "license": "MIT",
   "scripts": {
-    "build": "xwasm && webpack",
+    "build": "webpack",
     "start": "webpack-dev-server"
   },
   "devDependencies": {

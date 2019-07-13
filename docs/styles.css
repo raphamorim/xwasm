@@ -1,0 +1,86 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.debug {
+  position: absolute;
+  right: 1px;
+  bottom: 15%;
+  background: black;
+  opacity: 0.5;
+  color: white;
+  font-size: 30px;
+  padding: 15px;
+}
+
+.profile {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 80%;
+  padding: 0 20px;
+  color: white;
+  font-family: helvetica;
+  display: flex;
+  font-size: 20 px;
+  align-items: center;
+}
+
+.profile::before {
+  position: absolute;
+  content: '';
+  background: grey;
+  width: 100%;
+  opacity: 0.5;
+  height: 5px;
+  top: -22px;
+}
+
+.profile span {
+  margin-left: 10px;
+  opacity: 0.6;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 40%;
+  margin-right: 10px;
+}
