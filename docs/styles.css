@@ -23,26 +23,31 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 body {
   line-height: 1;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 canvas {
   width: 100%;
+  max-width: 600px;
   height: 100%;
   overflow: hidden;
   position: absolute;
   top: 0;
-  left: 0;
+  left: calc(50% - (600px / 2));
 }
 
 .debug {
   position: absolute;
-  right: 1px;
-  bottom: 15%;
+  left: 50%;
+  bottom: 15px;
   background: black;
   opacity: 0.5;
   color: white;
@@ -52,10 +57,12 @@ canvas {
 
 .profile {
   position: absolute;
-  top: 40px;
-  left: 0;
-  width: 80%;
-  padding: 0 20px;
+  top: 10px;
+  left: calc(50% - (600px / 2));
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 20px;
   color: white;
   font-family: helvetica;
   display: flex;
@@ -70,7 +77,8 @@ canvas {
   width: 100%;
   opacity: 0.5;
   height: 5px;
-  top: -22px;
+  top: -5px;
+  left: 0;
 }
 
 .profile span {
