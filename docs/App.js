@@ -1,4 +1,4 @@
-import React, { Fragment, Component, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { render } from 'react-dom';
 import useWasm from '../use-wasm/index.js';
 
@@ -179,7 +179,7 @@ function App() {
 
   return (
     <Fragment>
-      <canvas id='preview' onClick={ev => {
+      <canvas id='preview' onClick={() => {
         if (filter >= FILTER_LIMIT) {
           setFilter(0);
           return;

@@ -3,7 +3,7 @@
 const argv = process.argv;
 const path = require('path');
 
-function guide(argument) {
+function guide() {
   console.log('\nAvailable commands: install, build, version\n Docs: https://github.com/raphamorim/wasm')
 }
 

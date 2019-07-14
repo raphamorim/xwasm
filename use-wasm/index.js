@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useWasm(filename) {
   const filepath = filename + '.wasm';
@@ -30,7 +30,7 @@ function useWasm(filename) {
     };
 
     if (typeof WebAssembly.instantiateStreaming === 'function') {
-      const load = WebAssembly.instantiateStreaming(fetch(filepath), importObj)
+      WebAssembly.instantiateStreaming(fetch(filepath), importObj)
         .then(results => {
           setInstance(results.instance.exports)
         });
