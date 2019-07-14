@@ -1,4 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import dissoc from 'lodash/fp/dissoc';
+import mapKeys from 'lodash/fp/mapKeys';
+import pipe from 'lodash/fp/pipe';
+
+const getFunctions = instance => {
+  const removeDefaultProp = dissoc('__post_instantiate');
+
+  const removeUndercore = mapKeys(
+    key => key.substring(1)
+  );
+
+  const exported = pipe(
+    removeDefaultProp,
+    removeUndercore,
+  )(instance.exports);
+
+  return exported;
+};
 
 function useWasm(filename) {
   const filepath = filename + '.wasm';
@@ -32,7 +50,8 @@ function useWasm(filename) {
     if (typeof WebAssembly.instantiateStreaming === 'function') {
       const load = WebAssembly.instantiateStreaming(fetch(filepath), importObj)
         .then(results => {
-          setInstance(results.instance.exports)
+          const functions = getFunctions(results.instance);
+          setInstance(functions);
         });
     } else {
       fetch(filepath).then(response =>
@@ -40,7 +59,8 @@ function useWasm(filename) {
       ).then(bytes =>
         WebAssembly.instantiate(bytes, importObj)
       ).then(results => {
-        setInstance(results.instance.exports)
+        const functions = getFunctions(results.instance);
+        setInstance(functions);
       });
     }
   }, []);

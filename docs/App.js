@@ -61,7 +61,7 @@ function setImage(filter, instance) {
 
 function newProcessWasm(canvas, context, instance) {
   const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  const doubler = instance && instance._doubler;
+  const doubler = instance && instance.doubler;
   let data = imageData.data;
 
   const value = doubler(Math.floor(Math.random() * 40) + 120);
@@ -192,7 +192,7 @@ function App() {
       </div>
       <div className='debug'>
         <p>isWasmEnabled: {String(isWasmEnabled())}</p>
-        <p>_doubler: {String(instance && instance._doubler(2))}</p>
+        <p>doubler: {String(instance && instance.doubler(2))}</p>
       </div>
     </Fragment>
   );
