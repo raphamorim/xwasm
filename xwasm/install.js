@@ -1,7 +1,7 @@
 function InstallEmscripten(rootPath) {
   const path = require('path');
   const fs = require('fs');
-  const { spawn, execSync } = require('child_process');
+  const { spawn } = require('child_process');
 
   console.log('Installing SDK in:', process.cwd())
 

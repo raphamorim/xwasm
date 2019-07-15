@@ -1,6 +1,4 @@
 function Build(rootPath, filePath = '', exportedFunctions, output) {
-  const path = require('path');
-  const fs = require('fs');
   const { spawn } = require('child_process');
 
   // exported_functions: `['_doubler']`
