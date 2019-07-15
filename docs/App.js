@@ -80,7 +80,6 @@ function processWasm(canvas, ctx, instance) {
   let result;
 
   const Module = instance.module;
-  console.log(Module)
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const pixels = imageData.data;
   const typedArray = new Float32Array(pixels.length);
@@ -89,13 +88,9 @@ function processWasm(canvas, ctx, instance) {
     typedArray[i] = pixels[i]
   }
 
-  buffer = Module._malloc(typedArray.length * typedArray.BYTES_PER_ELEMENT)
-
-  Module.HEAPF32.set(typedArray, buffer >> 2)
-
-  // Finally, call the function with "number" parameter type for the array (the pointer), and an extra length parameter
-  result = Module.ccall("addNums", null, ["number", "number"], [buffer, arrayDataToPass.length])
-
+  buffer = Module._malloc(typedArray.length * typedArray.BYTES_PER_ELEMENT);
+  Module.HEAPF32.set(typedArray, buffer >> 2);
+  result = Module.ccall("render", null, ["number", "number"], [buffer, arrayDataToPass.length]);
 }
 
 const sepia = (imageData, adj) => {
