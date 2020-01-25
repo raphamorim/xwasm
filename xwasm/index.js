@@ -12,6 +12,8 @@ if (argv.length < 2) {
 }
 
 const command = argv[2];
+const pck = require('./package.json');
+
 switch (command) {
   case 'install':
     require('./install')(process.cwd());
@@ -32,10 +34,12 @@ switch (command) {
     require('./build')(process.cwd(), argv[3], argv[4], argv[5])
     break;
 
-  case 'version':
-    const pck = require('./package.json');
-    console.log('CLI Version: ' + pck.version);
+  case 'check':
     console.log('Emscripten Version: ' + pck.emscripten);
+    break;
+
+  case 'version':
+    console.log('CLI Version: ' + pck.version);
     break;
 
   default:

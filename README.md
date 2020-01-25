@@ -25,20 +25,14 @@ curl -o- -L https://raw.githubusercontent.com/raphamorim/xwasm/master/scripts/cr
 #### Summary
 
 - [`xwasm` Packager to WebAssembly](#xwasm)
-- [`emscripten` Node API for Emscripten SDK](#emscripten)
-- [`babel-plugin-wasm` Convert C++/Rust code to WASM in the babel parse](#babel-plugin-wasm)
 - [`useWasm` React Hook for load WASM files](#usewasm)
-- [Examples](#examples)
-  - [React + C++](#react--c)
-  - [Babel + React + C++](#react--babel--c)
-  - [Babel + React + Rust](#react--babel--rust)
 - [FAQ](#faq)
 - [TODO](#todo)
 - [References](#references)
 
 ## `xwasm`
 
-WebAssembly Packager (understand ~or should~ Rust/C/C++/Go/Lua).
+WebAssembly Packager (understand Rust/C/C++).
 
 It will install modules/environment on demand. However you can run separate commands to install enviroment:
 
@@ -63,7 +57,7 @@ const filesToProcess = [
   },
   {
     // by default output will follow input filename, in this case: "counter.wasm"
-    input: 'counter.rs,
+    input: 'counter.rs',
     functions: ['counter']  // functions that you want to export
   }
 ]
@@ -77,58 +71,6 @@ module.exports = filesToProcess;
 "scripts": {
   "build": "xwasm && webpack",
 ``` 
-
-## `emscripten` (under development)
-
-Node module for [Emscripten SDK](https://github.com/emscripten-core/emsdk) API. It will try to install SDK if you don't have Emscripten installed.
-
-Note: Only OS X and Linux support. Windows support in development.
-
-#### Installation
-
-It's going to install Emscripten SDK on postinstall hook.
-
-```bash
-npm install emscripten
-```
-
-Not available yet, still under development.
-
-###### `is_north.rs`
-
-```rust
-#[derive(Debug)]
-enum Direction { North, South, East, West }
-
-fn is_north(dir: Direction) -> bool {
-    match dir {
-        Direction::North => true,
-        _ => false,
-    }
-}
-
-fn main() {
-    let points = Direction::South;
-    println!("{:?}", points);
-    let compass = is_north(points);
-    println!("{}", compass);
-}
-```
-
-###### `index.js`
-
-```jsx
-import path from 'path';
-import Emscripten from 'emscripten';
-
-const emcc = new Emscripten();
-const isNorthPath = './is_north.rs';
-const emmc.buildFile({
-  input: path.resolve(__dirname, isNorthPath),
-  output: path.resolve(__dirname, 'is_north.wasm'),
-  wasm: true
-});
-```
 
 ## `useWasm`
 
@@ -179,30 +121,6 @@ render(<App/>, document.querySelector('#root'));
 ###### Instance loaded (wasm export object as value)
 
 ![Value loading returning instance object](assets/demo-react-hooks-loaded.png)
-
-## `babel-plugin-wasm`
-
-!! Still under development !!
-
-#### Installation
-
-```sh
-$ npm install babel-plugin-wasm
-```
-
-## Examples
-
-#### React + C++
-
-[Read the code](./docs)
-
-#### React + Babel + C++
-
-On going...
-
-#### React + Babel + Rust
-
-On going...
 
 ## TODO
 

@@ -7,7 +7,6 @@
   "keywords": ["node", "xwasm", "emscripten", "emcc", "sdk", "wasm", "webassembly"],
   "author": "Raphael Amorim <rapha850@gmail.com>",
   "scripts": {
-    "postinstall": "node ./index.js install"
   },
   "bin": {
     "xwasm": "index.js"
