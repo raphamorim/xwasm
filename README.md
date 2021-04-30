@@ -1,6 +1,6 @@
 ![assets](assets/wasm-sdk.png)
 
-This repository contain tools for develop modern frontend with WebAssembly (React, Vue, Babel and etecetera). 
+This repository contain tools for developing modern frontend with WebAssembly (React, Vue, Babel etc). 
 
 Please don't use it in production. It's not stable yet.
 
